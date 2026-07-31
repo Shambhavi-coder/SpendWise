@@ -15,7 +15,9 @@ router.get("/getAllByUserID/:userId", async (req: Request, res: Response) => {
     res.status(500).send(err);
   }
 });
-
+router.get("/", (req: Request, res: Response) => {
+  res.send("Financial Records API Working 🚀");
+});
 router.post("/", async (req: Request, res: Response) => {
   try {
     const newRecordBody = req.body;
