@@ -1,6 +1,6 @@
 import { useUser } from "@clerk/clerk-react";
 import { createContext, useContext, useEffect, useState } from "react";
-
+const API_URL = import.meta.env.VITE_API_URL;
 export interface FinancialRecord {
   _id?: string;
   userId: string;
