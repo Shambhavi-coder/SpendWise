@@ -1,6 +1,10 @@
 import { useUser } from "@clerk/clerk-react";
 import { createContext, useContext, useEffect, useState } from "react";
+
 const API_URL = import.meta.env.VITE_API_URL;
+
+console.log("API_URL:", API_URL);
+
 export interface FinancialRecord {
   _id?: string;
   userId: string;
@@ -32,6 +36,7 @@ export const FinancialRecordsProvider = ({
 
   const fetchRecords = async () => {
     if (!user) return;
+
     const response = await fetch(
       `${API_URL}/financial-records/getAllByUserID/${user.id}`
     );
@@ -48,7 +53,7 @@ export const FinancialRecordsProvider = ({
   }, [user]);
 
   const addRecord = async (record: FinancialRecord) => {
-    const response = await fetch("${API_URL}/financial-records", {
+    const response = await fetch(`${API_URL}/financial-records`, {
       method: "POST",
       body: JSON.stringify(record),
       headers: {
@@ -61,7 +66,9 @@ export const FinancialRecordsProvider = ({
         const newRecord = await response.json();
         setRecords((prev) => [...prev, newRecord]);
       }
-    } catch (err) { }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const updateRecord = async (id: string, newRecord: FinancialRecord) => {
@@ -78,18 +85,16 @@ export const FinancialRecordsProvider = ({
 
     try {
       if (response.ok) {
-        const newRecord = await response.json();
+        const updatedRecord = await response.json();
         setRecords((prev) =>
-          prev.map((record) => {
-            if (record._id === id) {
-              return newRecord;
-            } else {
-              return record;
-            }
-          })
+          prev.map((record) =>
+            record._id === id ? updatedRecord : record
+          )
         );
       }
-    } catch (err) { }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const deleteRecord = async (id: string) => {
@@ -107,7 +112,9 @@ export const FinancialRecordsProvider = ({
           prev.filter((record) => record._id !== deletedRecord._id)
         );
       }
-    } catch (err) { }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
