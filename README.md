@@ -1,42 +1,54 @@
 # 💰 SpendWise
 
-SpendWise is a full-stack MERN Personal Finance Tracker that helps users manage and track their financial records efficiently. Users can securely sign in, add expenses, categorize transactions, and monitor their spending through an intuitive dashboard.
+A full-stack Personal Finance Tracker built using the MERN stack with TypeScript. SpendWise allows users to securely manage their financial records with authentication, CRUD operations, and cloud-based data storage.
 
 ---
 
-## 🚀 Features
+## 🌐 Live Demo
+
+**Frontend:** https://spend-wise-psi-one.vercel.app
+
+**Backend:** https://spendwise-8g26.onrender.com
+
+---
+
+## 📌 Features
 
 - 🔐 Secure Authentication using Clerk
-- 💵 Add, View and Delete Financial Records
-- 📂 Categorize Expenses
-- 📊 Monthly Expense Summary
-- 🎨 Modern Responsive UI
-- ☁️ MongoDB Atlas Database
-- ⚡ Fast React + Vite Frontend
-- 🛠️ RESTful Express Backend
+- ➕ Add Financial Records
+- ✏️ Edit Existing Records
+- 🗑️ Delete Records
+- 📋 View Transaction History
+- 💾 Persistent Storage using MongoDB Atlas
+- 📱 Responsive User Interface
+- ☁️ Fully Deployed Application
 
 ---
 
-## 🛠 Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
 - React
 - TypeScript
 - Vite
 - Clerk Authentication
-- React Router
+- Context API
 - CSS
 
 ### Backend
 - Node.js
 - Express.js
 - TypeScript
-- MongoDB
+- MongoDB Atlas
 - Mongoose
+
+### Deployment
+- Vercel
+- Render
 
 ---
 
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```
 SpendWise
@@ -44,10 +56,13 @@ SpendWise
 ├── client
 │   ├── src
 │   ├── public
-│   └── package.json
+│   ├── package.json
+│   └── vite.config.ts
 │
 ├── server
 │   ├── src
+│   ├── routes
+│   ├── models
 │   ├── package.json
 │   └── tsconfig.json
 │
@@ -56,133 +71,78 @@ SpendWise
 
 ---
 
-## ⚙️ Installation
+## 🚀 Installation
 
-### Clone the repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/Shambhavi-coder/SpendWise.git
-```
-
-```bash
 cd SpendWise
 ```
 
 ---
 
-### Install Dependencies
-
-Frontend
+## Frontend Setup
 
 ```bash
 cd client
 npm install
+npm run dev
 ```
 
-Backend
+Runs on:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Backend Setup
 
 ```bash
-cd ../server
+cd server
 npm install
+npm run dev
+```
+
+Runs on:
+
+```
+http://localhost:3001
 ```
 
 ---
 
 ## 🔑 Environment Variables
 
-### Client (.env.local)
+### Client (.env)
 
 ```env
-VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+VITE_CLERK_PUBLISHABLE_KEY=YOUR_CLERK_PUBLISHABLE_KEY
+VITE_API_URL=https://spendwise-8g26.onrender.com
 ```
+
+---
 
 ### Server (.env)
 
 ```env
-MONGO_URI=your_mongodb_connection_string
+MONGO_URI=YOUR_MONGODB_CONNECTION_STRING
 PORT=3001
 ```
 
 ---
 
-## ▶️ Running the Application
+## 🎯 Future Improvements
 
-### Start Backend
-
-```bash
-cd server
-npm run dev
-```
-
-### Start Frontend
-
-```bash
-cd client
-npm run dev
-```
-
-Frontend
-
-```
-http://localhost:5173
-```
-
-Backend
-
-```
-${API_URL}
-```
-
----
-
-## 📸 Screenshots
-
-### Dashboard
-
-_Add your dashboard screenshot here._
-
-### Authentication
-
-_Add your login/signup screenshot here._
-
----
-
-## 🌟 Future Improvements
-
-- Income Tracking
-- Budget Management
-- Charts & Analytics
-- Export Transactions
-- Dark Mode
-- Search & Filters
-- Recurring Expenses
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repository
-2. Create a new branch
-
-```bash
-git checkout -b feature-name
-```
-
-3. Commit your changes
-
-```bash
-git commit -m "Added new feature"
-```
-
-4. Push the branch
-
-```bash
-git push origin feature-name
-```
-
-5. Open a Pull Request
+- 📊 Expense Analytics Dashboard
+- 📈 Charts & Reports
+- 🌙 Dark Mode
+- 📅 Monthly Budget Tracking
+- 📤 Export Transactions (CSV/PDF)
+- 🔎 Search & Filter Transactions
+- 💱 Multi-Currency Support
 
 ---
 
@@ -190,5 +150,11 @@ git push origin feature-name
 
 **Shambhavi**
 
-GitHub: https://github.com/Shambhavi-coder
+- GitHub: https://github.com/Shambhavi-coder
+- Project Repository: https://github.com/Shambhavi-coder/SpendWise
 
+---
+
+## ⭐ Support
+
+If you found this project helpful, consider giving it a ⭐ on GitHub!
